@@ -1,0 +1,20 @@
+{
+  "description": "Personal Website",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "start": "npm run develop"
+  },
+  "author": "Michael Liu",
+  "devDependencies": {
+    "prettier": "^2.2.1"
+  },
+  "dependencies": {
+    "bulma": "^0.9.1",
+    "gatsby": "^2.31.1",
+    "gatsby-plugin-sass": "^3.1.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "sass": "^1.32.5"
+  }
+}
