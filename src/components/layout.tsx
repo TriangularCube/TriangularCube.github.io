@@ -29,15 +29,24 @@ const Layout: FC = ({ children }): ReactElement => {
           </div>
           <div className={`navbar-menu ${isMenuOpen && `is-active`}`}>
             <div className='navbar-end'>
-              <a className='navbar-item'>
+              <a className='navbar-item' href='/blog'>
                 <h4>Blog</h4>
               </a>
             </div>
           </div>
         </div>
       </nav>
-      <section className='section'>
-        <div className='container'>{children}</div>
+      <section
+        className='container is-flex is-flex-direction-column'
+        style={{ minHeight: '100vh', padding: '1rem' }}
+      >
+        <div className='is-flex is-flex-direction-column' style={{ flex: 1 }}>
+          {children}
+        </div>
+        <div className='columns is-flex-direction-column is-vcentered'>
+          <div>Ho</div>
+          <div>© 2021 Michael Liu</div>
+        </div>
       </section>
     </>
   )
