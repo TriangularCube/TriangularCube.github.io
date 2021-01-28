@@ -10,11 +10,14 @@
     "prettier": "^2.2.1"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.2",
     "bulma": "^0.9.1",
     "gatsby": "^2.31.1",
+    "gatsby-plugin-react-helmet": "^3.9.0",
     "gatsby-plugin-sass": "^3.1.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-helmet": "^6.1.0",
     "sass": "^1.32.5"
   }
 }

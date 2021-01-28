@@ -1,5 +1,6 @@
 import React, { FC, ReactElement, useState } from 'react'
 import '../bulma.scss'
+import '@fortawesome/fontawesome-free/css/all.min.css'
 
 const Layout: FC = ({ children }): ReactElement => {
   const [isMenuOpen, setMenuOpen] = useState(false)
@@ -30,7 +31,7 @@ const Layout: FC = ({ children }): ReactElement => {
           <div className={`navbar-menu ${isMenuOpen && `is-active`}`}>
             <div className='navbar-end'>
               <a className='navbar-item' href='/blog'>
-                <h4>Blog</h4>
+                <h4 className='is-size-5'>Blog</h4>
               </a>
             </div>
           </div>
@@ -38,17 +39,37 @@ const Layout: FC = ({ children }): ReactElement => {
       </nav>
       <section
         className='container is-flex is-flex-direction-column'
-        style={{ minHeight: '100vh', padding: '1rem' }}
+        style={{ minHeight: '100vh', padding: '1.5rem' }}
       >
         <div className='is-flex is-flex-direction-column' style={{ flex: 1 }}>
           {children}
         </div>
         <div className='columns is-flex-direction-column is-vcentered'>
-          <div>Ho</div>
-          <div>© 2021 Michael Liu</div>
+          <div className='is-flex' style={{ padding: '1rem', alignItems: 'center' }}>
+            <LinkButton icon='fa-github' link='https://github.com/TriangularCube' />
+            •
+            <LinkButton icon='fa-twitter' link='https://twitter.com/TempestUnbound' />
+            •
+            <LinkButton icon='fa-linkedin-in' link='https://www.linkedin.com/in/%F0%9F%92%BE-michael-liu-b0072513a/' />
+          </div>
+          <div className='is-size-5'>© {new Date().getFullYear()} <strong>Michael Liu</strong></div>
         </div>
       </section>
     </>
+  )
+}
+
+interface LinkButtonProps {
+  icon: string
+  link: string
+}
+const LinkButton: FC<LinkButtonProps> = ({ icon, link }: LinkButtonProps): ReactElement => {
+  return (
+    <a className='button is-white' style={{ margin: '0 1rem' }} href={link}>
+      <span className='icon'>
+        <i className={`fab fa-lg ${icon}`}></i>
+      </span>
+    </a>
   )
 }
 

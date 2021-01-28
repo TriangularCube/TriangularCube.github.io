@@ -1,3 +1,9 @@
 module.exports = {
-  plugins: ['gatsby-plugin-sass'],
+  siteMetadata: {
+    title: 'Triangular Cube'
+  },
+  plugins: [
+    'gatsby-plugin-sass', 
+    `gatsby-plugin-react-helmet`
+  ],
 }
