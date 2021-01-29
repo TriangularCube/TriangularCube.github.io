@@ -16,7 +16,7 @@ const Layout: FC = ({ children }): ReactElement => {
               </h2>
             </a>
 
-            <a
+            {/* <a
               role='button'
               className={`navbar-burger ${isMenuOpen && `is-active`}`}
               aria-label='menu'
@@ -26,15 +26,15 @@ const Layout: FC = ({ children }): ReactElement => {
               <span aria-hidden='true'></span>
               <span aria-hidden='true'></span>
               <span aria-hidden='true'></span>
-            </a>
+            </a> */}
           </div>
-          <div className={`navbar-menu ${isMenuOpen && `is-active`}`}>
+          {/* <div className={`navbar-menu ${isMenuOpen && `is-active`}`}>
             <div className='navbar-end'>
               <a className='navbar-item' href='/blog'>
                 <h4 className='is-size-5'>Blog</h4>
               </a>
             </div>
-          </div>
+          </div> */}
         </div>
       </nav>
       <section
