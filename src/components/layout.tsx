@@ -1,12 +1,14 @@
-import React, { FC, ReactElement /*, useState */ } from 'react'
+import React, { FC, ReactElement } from 'react'
 import {
   AppBar,
+  ButtonBase,
   IconButton,
   makeStyles,
   Toolbar,
   Typography,
 } from '@material-ui/core'
 import { LinkedIn, GitHub, Twitter } from '@material-ui/icons'
+import { Link } from 'gatsby'
 
 const useStyles = makeStyles({
   wrapper: {
@@ -30,9 +32,11 @@ export const Layout: FC = ({ children }): ReactElement => {
     <>
       <AppBar position='sticky' color='inherit' elevation={0}>
         <Toolbar>
-          <Typography variant='body1' style={{ fontWeight: 700 }}>
-            <strong>Triangular Cube</strong>
-          </Typography>
+          <ButtonBase component={Link} to='/'>
+            <Typography variant='body1' style={{ fontWeight: 700 }}>
+              <strong>Triangular Cube</strong>
+            </Typography>
+          </ButtonBase>
         </Toolbar>
       </AppBar>
       <div className={classes.wrapper}>{children}</div>

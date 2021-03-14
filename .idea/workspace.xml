@@ -2,22 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5e53f4a0-6b80-41a2-a68d-cb6e146f4614" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/plugins/gatsby-plugin-top-layout/TopLayout.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/plugins/gatsby-plugin-top-layout/gatsby-browser.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/plugins/gatsby-plugin-top-layout/gatsby-ssr.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/plugins/gatsby-plugin-top-layout/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/theme.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/TriangularCube.github.io.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/TriangularCube.github.io.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gatsby-browser.js" beforeDir="false" afterPath="$PROJECT_DIR$/gatsby-browser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gatsby-config.js" beforeDir="false" afterPath="$PROJECT_DIR$/gatsby-config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gatsby-ssr.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bulma.scss" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/global.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/global.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +87,7 @@
       <workItem from="1615569127838" duration="6278000" />
       <workItem from="1615623151870" duration="3090000" />
       <workItem from="1615668590572" duration="5539000" />
-      <workItem from="1615693269287" duration="3670000" />
+      <workItem from="1615693269287" duration="5340000" />
     </task>
     <servers />
   </component>
