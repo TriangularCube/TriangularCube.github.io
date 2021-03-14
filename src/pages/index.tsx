@@ -1,31 +1,32 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
 
+import { Hidden, Typography } from '@material-ui/core'
+
 const IndexPage = () => {
   return (
     <>
       <Helmet>
-        <meta charSet='utf-8' />
         <title>Triangular Cube</title>
       </Helmet>
-      <div className='level'>
-        <p className='level-item is-size-2 has-text-weight-bold'>Michael Liu</p>
-      </div>
-      <div className='level is-flex is-justify-content-center'>
-        <p className='level-item is-size-3'>
+      <Typography variant='h4'>Michael Liu</Typography>
+      <br />
+      <Hidden implementation='css' smDown>
+        <Typography variant='h6' align='center'>
           Software Developer | Amateur Game Maker
-        </p>
-      </div>
-      {/*<div*/}
-      {/*  className='columns is-centered is-vcentered is-flex-direction-column'*/}
-      {/*  style={{ flex: 1 }}*/}
-      {/*>*/}
-      {/*  <div className='column is-narrow'>*/}
-      {/*    <div className='columns is-flex is-flex-direction-column is-vcentered'>*/}
-      {/*      */}
-      {/*    </div>*/}
-      {/*  </div>*/}
-      {/*</div>*/}
+        </Typography>
+      </Hidden>
+      <Hidden implementation='css' mdUp>
+        <Typography variant='body1' align='center'>
+          Software Developer
+        </Typography>
+        <Typography align='center'>
+          -
+        </Typography>
+        <Typography variant='body1' align='center'>
+          Amateur Game Maker
+        </Typography>
+      </Hidden>
     </>
   )
 }
