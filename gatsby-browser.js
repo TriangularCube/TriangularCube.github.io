@@ -1,8 +1,4 @@
-import React from 'react'
-import { Layout } from './src/components/layout'
-
 import './src/global.css'
+import { CustomLayout } from './util/customLayout'
 
-export const wrapPageElement = ({ element, props }) => {
-  return <Layout {...props}>{element}</Layout>
-}
+export const wrapPageElement = CustomLayout
