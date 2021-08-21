@@ -18,6 +18,17 @@ const useStyles = makeStyles({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  spacer: {
+    flex: 1,
+  },
+  button: {
+    padding: '0 0.3rem',
+    margin: '0 0.2rem'
+  },
+  lastButton: {
+    paddingLeft: '0.3rem',
+    marginLeft: '0.2rem'
+  },
   footerLine: {
     display: 'flex',
     flexDirection: 'row',
@@ -36,6 +47,21 @@ export const Layout: FC = ({ children }): ReactElement => {
             <Typography variant='body1' style={{ fontWeight: 700 }}>
               <strong>Triangular Cube</strong>
             </Typography>
+          </ButtonBase>
+          <div className={classes.spacer} />
+          <ButtonBase
+            component={Link}
+            to='/projects'
+            className={classes.button}
+          >
+            <Typography variant='body1'>Projects</Typography>
+          </ButtonBase>
+          <ButtonBase
+            component={Link}
+            to='/blog'
+            className={classes.lastButton}
+          >
+            <Typography variant='body1'>Blog</Typography>
           </ButtonBase>
         </Toolbar>
       </AppBar>

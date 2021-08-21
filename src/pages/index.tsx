@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet'
 
 import { Hidden, Typography } from '@material-ui/core'
 
-const IndexPage = () => {
+function IndexPage() {
   return (
     <>
       <Helmet>
