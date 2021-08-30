@@ -13,10 +13,7 @@ import { Link } from 'gatsby'
 const useStyles = makeStyles({
   wrapper: {
     flex: 1,
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
+    display: 'flex'
   },
   spacer: {
     flex: 1,
