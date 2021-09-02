@@ -2,6 +2,7 @@ import { makeStyles, Typography } from '@material-ui/core'
 import { graphql } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import React from 'react'
+import Img, { FluidObject } from 'gatsby-image'
 import { Center } from '../../components/Center'
 
 interface MDXProps {
@@ -10,6 +11,11 @@ interface MDXProps {
       frontmatter: {
         title: string
         date: string
+        featuredImage: {
+          childImageSharp: {
+            fluid: FluidObject
+          }
+        }
       }
       body: string
     }
@@ -29,10 +35,12 @@ const useStyles = makeStyles({
 
 function BlogPost({ data }: MDXProps) {
   const classes = useStyles()
+  const featuredImage = data.mdx.frontmatter.featuredImage?.childImageSharp?.fluid
 
   return (
     <Center>
       <div className={classes.container}>
+        {featuredImage && <Img fluid={featuredImage}/>}
         <Typography variant='h4'>{data.mdx.frontmatter.title}</Typography>
         <Typography variant='body2' className={classes.datePadding}>
           {data.mdx.frontmatter.date}
@@ -49,6 +57,13 @@ export const query = graphql`
       frontmatter {
         title
         date(formatString: "MMMM D, YYYY")
+          featuredImage {
+              childImageSharp {
+                  fluid(maxWidth: 800) {
+                      ...GatsbyImageSharpFluid
+                  }
+              }
+          }
       }
       body
     }
