@@ -60,7 +60,7 @@ function Blog({ data, pageContext }: DataType) {
         {data.allMdx.nodes.map(node => (
           <article key={node.slug} className={classes.article}>
             <Link to={`/blog/${node.slug}`}>
-              <Typography variant='h4'>{node.frontmatter.title}</Typography>
+              <Typography variant='h6'>{node.frontmatter.title}</Typography>
             </Link>
             <Typography variant='body2'>
               Posted: {node.frontmatter.date}

@@ -28,6 +28,9 @@ const useStyles = makeStyles({
     width: '80%',
     minWidth: '10rem',
   },
+  titlePadding: {
+    height: '2rem'
+  },
   datePadding: {
     paddingBottom: '0.5rem',
   },
@@ -35,12 +38,14 @@ const useStyles = makeStyles({
 
 function BlogPost({ data }: MDXProps) {
   const classes = useStyles()
-  const featuredImage = data.mdx.frontmatter.featuredImage?.childImageSharp?.fluid
+  const featuredImage =
+    data.mdx.frontmatter.featuredImage?.childImageSharp?.fluid
 
   return (
     <Center>
       <div className={classes.container}>
-        {featuredImage && <Img fluid={featuredImage}/>}
+        {featuredImage && <Img fluid={featuredImage} />}
+        <div className={classes.titlePadding} />
         <Typography variant='h4'>{data.mdx.frontmatter.title}</Typography>
         <Typography variant='body2' className={classes.datePadding}>
           {data.mdx.frontmatter.date}
@@ -57,13 +62,13 @@ export const query = graphql`
       frontmatter {
         title
         date(formatString: "MMMM D, YYYY")
-          featuredImage {
-              childImageSharp {
-                  fluid(maxWidth: 800) {
-                      ...GatsbyImageSharpFluid
-                  }
-              }
+        featuredImage {
+          childImageSharp {
+            fluid(maxWidth: 800) {
+              ...GatsbyImageSharpFluid
+            }
           }
+        }
       }
       body
     }
