@@ -1,6 +1,32 @@
 ---
-title: "UserData in React Native Promises"
+title: "UserInfo in React Native Promises"
 date: "2021-09-01"
 featuredImage: ../images/react-native.png
 ---
-React Native
+React Native's Native Modules are great, but their documentation is a little...lacking.
+Let's talk about the `UserInfo` field when we reject a promise in a Native Module.
+
+According to the docs (for both Android and iOS), RN Native Module promises can be rejected
+with various combinations of the following parameters:
+
+```
+String code, String message, WritableMap userInfo, Throwable throwable
+```
+
+That's great! Except we never quite get where to _find_ `userInfo`. After some poking
+around, I found that you can access `userInfo` from the `error` object caught
+on a promise rejection.
+
+```
+import {NativeModules} from 'react-native'
+const {SomeModule} = NativeModules
+
+...
+try {
+    await SomeModule.doSomething()
+} catch (error) {
+    error.userInfo // <-- This here
+}
+```
+
+Simple, so it's very strange this is just not documented anywhere.
