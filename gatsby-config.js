@@ -4,6 +4,7 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-top-layout`,
+    `gatsby-plugin-image`,
     {
       resolve: 'gatsby-plugin-material-ui',
       options: {},

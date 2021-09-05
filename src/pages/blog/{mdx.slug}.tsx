@@ -1,9 +1,9 @@
-import { makeStyles, Typography } from '@material-ui/core'
+import { debounce, makeStyles, Typography } from '@material-ui/core'
 import { graphql } from 'gatsby'
-import Img, { FluidObject } from 'gatsby-image'
+import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { MDXProvider } from '@mdx-js/react'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Helmet } from 'react-helmet'
 import { Center } from '../../components/Center'
 import { CodeBlock } from '../../components/CodeBlock'
@@ -16,9 +16,10 @@ interface MDXProps {
         date: string
         featuredImage: {
           childImageSharp: {
-            fluid: FluidObject
+            gatsbyImageData: IGatsbyImageData
           }
         }
+        featuredImageAlt: string
       }
       body: string
     }
@@ -26,13 +27,15 @@ interface MDXProps {
 }
 
 const components = {
-  pre: CodeBlock
+  pre: CodeBlock,
 }
+
+const margin = 20
 
 const useStyles = makeStyles({
   container: {
     height: '100%',
-    width: '80%',
+    margin: `${margin}px`,
     minWidth: '10rem',
   },
   titlePadding: {
@@ -43,10 +46,24 @@ const useStyles = makeStyles({
   },
 })
 
+// https://stackoverflow.com/questions/66996984/using-prismjs-for-syntax-highlighted-code-blocks-is-breaking-layout-on-mobile
+
 function BlogPost({ data }: MDXProps) {
   const classes = useStyles()
   const featuredImage =
-    data.mdx.frontmatter.featuredImage?.childImageSharp?.fluid
+    data.mdx.frontmatter.featuredImage?.childImageSharp?.gatsbyImageData
+
+  const [windowWidth, setWindowWidth] = useState(window.screen.width)
+  useEffect(() => {
+    const onResize = debounce(() => {
+      setWindowWidth(window.screen.width)
+    }, 500)
+    window.onresize = onResize
+
+    return () => {
+      window.removeEventListener('onresize', onResize)
+    }
+  }, [])
 
   return (
     <>
@@ -54,8 +71,16 @@ function BlogPost({ data }: MDXProps) {
         <title>{data.mdx.frontmatter.title}</title>
       </Helmet>
       <Center>
-        <div className={classes.container}>
-          {featuredImage && <Img fluid={featuredImage} />}
+        <div
+          className={classes.container}
+          style={{ maxWidth: windowWidth - margin * 2 }}
+        >
+          {featuredImage && (
+            <GatsbyImage
+              image={featuredImage}
+              alt={data.mdx.frontmatter.featuredImageAlt}
+            />
+          )}
           <div className={classes.titlePadding} />
           <Typography variant='h4'>{data.mdx.frontmatter.title}</Typography>
           <Typography variant='body2' className={classes.datePadding}>
@@ -79,11 +104,10 @@ export const query = graphql`
         date(formatString: "MMMM D, YYYY")
         featuredImage {
           childImageSharp {
-            fluid(maxWidth: 800) {
-              ...GatsbyImageSharpFluid
-            }
+            gatsbyImageData(layout: CONSTRAINED)
           }
         }
+        featuredImageAlt
       }
       body
     }
