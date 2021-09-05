@@ -7,6 +7,7 @@ import React, { useEffect, useState } from 'react'
 import { Helmet } from 'react-helmet'
 import { Center } from '../../components/Center'
 import { CodeBlock } from '../../components/CodeBlock'
+import { Comments } from '../../components/Comments'
 
 interface MDXProps {
   data: {
@@ -96,6 +97,8 @@ function BlogPost({ data }: MDXProps) {
           <MDXProvider components={components}>
             <MDXRenderer>{data.mdx.body}</MDXRenderer>
           </MDXProvider>
+
+          <Comments />
         </div>
       </Center>
     </>
