@@ -53,15 +53,21 @@ function BlogPost({ data }: MDXProps) {
   const featuredImage =
     data.mdx.frontmatter.featuredImage?.childImageSharp?.gatsbyImageData
 
-  const [windowWidth, setWindowWidth] = useState(window.screen.width)
+  const [windowWidth, setWindowWidth] = useState(1280)
   useEffect(() => {
+    if (!window) {
+      return
+    }
+
+    setWindowWidth(window.screen.width)
+
     const onResize = debounce(() => {
       setWindowWidth(window.screen.width)
     }, 500)
-    window.onresize = onResize
+    window.addEventListener('resize', onResize)
 
     return () => {
-      window.removeEventListener('onresize', onResize)
+      window.removeEventListener('resize', onResize)
     }
   }, [])
 
