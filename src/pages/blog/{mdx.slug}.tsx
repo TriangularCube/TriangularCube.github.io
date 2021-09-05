@@ -1,9 +1,12 @@
 import { makeStyles, Typography } from '@material-ui/core'
 import { graphql } from 'gatsby'
-import { MDXRenderer } from 'gatsby-plugin-mdx'
-import React from 'react'
 import Img, { FluidObject } from 'gatsby-image'
+import { MDXRenderer } from 'gatsby-plugin-mdx'
+import { MDXProvider } from '@mdx-js/react'
+import React from 'react'
+import { Helmet } from 'react-helmet'
 import { Center } from '../../components/Center'
+import { CodeBlock } from '../../components/CodeBlock'
 
 interface MDXProps {
   data: {
@@ -22,6 +25,10 @@ interface MDXProps {
   }
 }
 
+const components = {
+  pre: CodeBlock
+}
+
 const useStyles = makeStyles({
   container: {
     height: '100%',
@@ -29,7 +36,7 @@ const useStyles = makeStyles({
     minWidth: '10rem',
   },
   titlePadding: {
-    height: '2rem'
+    height: '2rem',
   },
   datePadding: {
     paddingBottom: '0.5rem',
@@ -42,17 +49,25 @@ function BlogPost({ data }: MDXProps) {
     data.mdx.frontmatter.featuredImage?.childImageSharp?.fluid
 
   return (
-    <Center>
-      <div className={classes.container}>
-        {featuredImage && <Img fluid={featuredImage} />}
-        <div className={classes.titlePadding} />
-        <Typography variant='h4'>{data.mdx.frontmatter.title}</Typography>
-        <Typography variant='body2' className={classes.datePadding}>
-          {data.mdx.frontmatter.date}
-        </Typography>
-        <MDXRenderer>{data.mdx.body}</MDXRenderer>
-      </div>
-    </Center>
+    <>
+      <Helmet>
+        <title>{data.mdx.frontmatter.title}</title>
+      </Helmet>
+      <Center>
+        <div className={classes.container}>
+          {featuredImage && <Img fluid={featuredImage} />}
+          <div className={classes.titlePadding} />
+          <Typography variant='h4'>{data.mdx.frontmatter.title}</Typography>
+          <Typography variant='body2' className={classes.datePadding}>
+            {data.mdx.frontmatter.date}
+          </Typography>
+
+          <MDXProvider components={components}>
+            <MDXRenderer>{data.mdx.body}</MDXRenderer>
+          </MDXProvider>
+        </div>
+      </Center>
+    </>
   )
 }
 

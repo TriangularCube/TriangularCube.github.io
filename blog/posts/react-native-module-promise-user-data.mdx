@@ -9,7 +9,7 @@ Let's talk about the `UserInfo` field when we reject a promise in a Native Modul
 According to the docs (for both Android and iOS), RN Native Module promises can be rejected
 with various combinations of the following parameters:
 
-```
+```java
 String code, String message, WritableMap userInfo, Throwable throwable
 ```
 
@@ -17,7 +17,7 @@ That's great! Except we never quite get where to _find_ `userInfo`. After some p
 around, I found that you can access `userInfo` from the `error` object caught
 on a promise rejection.
 
-```
+```js
 import {NativeModules} from 'react-native'
 const {SomeModule} = NativeModules
 
