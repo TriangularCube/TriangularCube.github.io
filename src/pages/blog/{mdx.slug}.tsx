@@ -38,6 +38,7 @@ const useStyles = makeStyles({
     height: '100%',
     margin: `${margin}px`,
     minWidth: '10rem',
+    maxWidth: `50rem`
   },
   titlePadding: {
     height: '2rem',
@@ -54,24 +55,6 @@ function BlogPost({ data }: MDXProps) {
   const featuredImage =
     data.mdx.frontmatter.featuredImage?.childImageSharp?.gatsbyImageData
 
-  const [windowWidth, setWindowWidth] = useState(1280)
-  useEffect(() => {
-    if (!window) {
-      return
-    }
-
-    setWindowWidth(window.screen.width)
-
-    const onResize = debounce(() => {
-      setWindowWidth(window.screen.width)
-    }, 500)
-    window.addEventListener('resize', onResize)
-
-    return () => {
-      window.removeEventListener('resize', onResize)
-    }
-  }, [])
-
   return (
     <>
       <Helmet>
@@ -80,7 +63,6 @@ function BlogPost({ data }: MDXProps) {
       <Center>
         <div
           className={classes.container}
-          style={{ maxWidth: windowWidth - margin * 2 }}
         >
           {featuredImage && (
             <GatsbyImage
