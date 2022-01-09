@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
-import { makeStyles, Typography } from '@material-ui/core'
+// import { makeStyles, Typography } from '@material-ui/core'
 import { Helmet } from 'react-helmet'
 
 import { Center } from '../components/Center'
@@ -23,26 +23,26 @@ interface DataType {
   }
 }
 
-const useStyles = makeStyles({
-  article: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    padding: '0.5rem 0',
-  },
-  navSection: {
-    display: 'flex',
-    flexDirection: 'row',
-    width: '60%',
-    marginTop: '8rem',
-  },
-  spacer: {
-    flex: 1,
-  },
-})
+// const useStyles = makeStyles({
+//   article: {
+//     display: 'flex',
+//     flexDirection: 'column',
+//     alignItems: 'center',
+//     padding: '0.5rem 0',
+//   },
+//   navSection: {
+//     display: 'flex',
+//     flexDirection: 'row',
+//     width: '60%',
+//     marginTop: '8rem',
+//   },
+//   spacer: {
+//     flex: 1,
+//   },
+// })
 
 function Blog({ data, pageContext }: DataType) {
-  const classes = useStyles()
+  // const classes = useStyles()
 
   const { currentPage, numPages } = pageContext
   const isFirst = currentPage === 1
@@ -58,22 +58,22 @@ function Blog({ data, pageContext }: DataType) {
       </Helmet>
       <Center>
         {data.allMdx.nodes.map(node => (
-          <article key={node.slug} className={classes.article}>
-            <Link to={`/blog/${node.slug}`}>
-              <Typography variant='h6'>{node.frontmatter.title}</Typography>
-            </Link>
-            <Typography variant='body2'>
-              Posted: {node.frontmatter.date}
-            </Typography>
+          <article key={node.slug}>
+            {/*<Link to={`/blog/${node.slug}`}>*/}
+            {/*  <Typography variant='h6'>{node.frontmatter.title}</Typography>*/}
+            {/*</Link>*/}
+            {/*<Typography variant='body2'>*/}
+            {/*  Posted: {node.frontmatter.date}*/}
+            {/*</Typography>*/}
           </article>
         ))}
-        <div className={classes.navSection}>
+        <div>
           {!isFirst && (
             <Link to={prevPage} rel='prev'>
               ← Previous Page
             </Link>
           )}
-          <div className={classes.spacer} />
+          <div/>
           {!isLast && (
             <Link to={nextPage} rel='next'>
               Next Page →

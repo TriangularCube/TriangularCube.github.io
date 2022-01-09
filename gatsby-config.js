@@ -3,12 +3,9 @@ module.exports = {
     title: 'Triangular Cube',
   },
   plugins: [
+    `gatsby-plugin-sass`,
     `gatsby-plugin-top-layout`,
     `gatsby-plugin-image`,
-    {
-      resolve: 'gatsby-plugin-material-ui',
-      options: {},
-    },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-typescript`,
     'gatsby-remark-images',

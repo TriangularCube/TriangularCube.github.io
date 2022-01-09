@@ -1,9 +1,8 @@
-import { debounce, makeStyles, Typography } from '@material-ui/core'
+import React from 'react'
 import { graphql } from 'gatsby'
 import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { MDXProvider } from '@mdx-js/react'
-import React, { useEffect, useState } from 'react'
 import { Helmet } from 'react-helmet'
 import { Center } from '../../components/Center'
 import { CodeBlock } from '../../components/CodeBlock'
@@ -31,27 +30,26 @@ const components = {
   pre: CodeBlock,
 }
 
-const margin = 20
+// const margin = 20
 
-const useStyles = makeStyles({
-  container: {
-    height: '100%',
-    margin: `${margin}px`,
-    minWidth: '10rem',
-    maxWidth: `50rem`
-  },
-  titlePadding: {
-    height: '2rem',
-  },
-  datePadding: {
-    paddingBottom: '0.5rem',
-  },
-})
+// const useStyles = makeStyles({
+//   container: {
+//     height: '100%',
+//     margin: `${margin}px`,
+//     minWidth: '10rem',
+//     maxWidth: `50rem`,
+//   },
+//   titlePadding: {
+//     height: '2rem',
+//   },
+//   datePadding: {
+//     paddingBottom: '0.5rem',
+//   },
+// })
 
 // https://stackoverflow.com/questions/66996984/using-prismjs-for-syntax-highlighted-code-blocks-is-breaking-layout-on-mobile
 
 function BlogPost({ data }: MDXProps) {
-  const classes = useStyles()
   const featuredImage =
     data.mdx.frontmatter.featuredImage?.childImageSharp?.gatsbyImageData
 
@@ -61,20 +59,18 @@ function BlogPost({ data }: MDXProps) {
         <title>{data.mdx.frontmatter.title}</title>
       </Helmet>
       <Center>
-        <div
-          className={classes.container}
-        >
+        <div>
           {featuredImage && (
             <GatsbyImage
               image={featuredImage}
               alt={data.mdx.frontmatter.featuredImageAlt}
             />
           )}
-          <div className={classes.titlePadding} />
-          <Typography variant='h4'>{data.mdx.frontmatter.title}</Typography>
-          <Typography variant='body2' className={classes.datePadding}>
-            {data.mdx.frontmatter.date}
-          </Typography>
+          <div/>
+          {/*<Typography variant='h4'>{data.mdx.frontmatter.title}</Typography>*/}
+          {/*<Typography variant='body2' className={classes.datePadding}>*/}
+          {/*  {data.mdx.frontmatter.date}*/}
+          {/*</Typography>*/}
 
           <MDXProvider components={components}>
             <MDXRenderer>{data.mdx.body}</MDXRenderer>
