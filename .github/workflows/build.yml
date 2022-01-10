@@ -15,11 +15,11 @@ jobs:
         with:
           node-version: "14"
 
-      - name: Update NPM
-        run: npm install -g npm@latest
+#      - name: Update NPM
+#        run: npm install -g npm@latest
 
       - name: Setup Project
-        run: npm install
+        run: yarn install
 
       - uses: enriikke/gatsby-gh-pages-action@v2
         with:
