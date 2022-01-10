@@ -30,23 +30,6 @@ const components = {
   pre: CodeBlock,
 }
 
-// const margin = 20
-
-// const useStyles = makeStyles({
-//   container: {
-//     height: '100%',
-//     margin: `${margin}px`,
-//     minWidth: '10rem',
-//     maxWidth: `50rem`,
-//   },
-//   titlePadding: {
-//     height: '2rem',
-//   },
-//   datePadding: {
-//     paddingBottom: '0.5rem',
-//   },
-// })
-
 // https://stackoverflow.com/questions/66996984/using-prismjs-for-syntax-highlighted-code-blocks-is-breaking-layout-on-mobile
 
 function BlogPost({ data }: MDXProps) {
@@ -70,17 +53,15 @@ function BlogPost({ data }: MDXProps) {
           <h4 className='title is-4 has-text-dark'>
             {data.mdx.frontmatter.title}
           </h4>
-          {/*<Typography variant='h4'>{data.mdx.frontmatter.title}</Typography>*/}
-          {/*<Typography variant='body2' className={classes.datePadding}>*/}
-          {/*  {data.mdx.frontmatter.date}*/}
-          {/*</Typography>*/}
+          <p className='subtitle is-6 pb-2'>
+            <em>{data.mdx.frontmatter.date}</em>
+          </p>
 
           <MDXProvider components={components}>
             <MDXRenderer>{data.mdx.body}</MDXRenderer>
           </MDXProvider>
-
-          <Comments />
         </div>
+        <Comments />
       </Center>
     </>
   )

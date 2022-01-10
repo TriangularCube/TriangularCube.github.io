@@ -1,12 +1,19 @@
 import React from 'react'
-import { Center } from '../components/Center'
+import { Helmet } from 'react-helmet'
 
 function Projects() {
   return (
-    <Center>
-      <div className='title is-4 has-text-dark'>Under Construction</div>
-    </Center>
+    <>
+      <Helmet>
+        <title>Projects</title>
+      </Helmet>
+      <Center>
+        <div className='title is-4 has-text-dark'>Under Construction</div>
+      </Center>
+    </>
   )
 }
+
+import { Center } from '../components/Center'
 
 export default Projects

@@ -24,5 +24,5 @@ export function Comments() {
     }
   }, [])
 
-  return <div ref={ref} />
+  return <div style={{ width: '100%' }} ref={ref} />
 }

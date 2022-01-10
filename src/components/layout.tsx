@@ -46,7 +46,7 @@ export const Layout: FC = ({ children }): ReactElement => {
           </div>
         </div>
       </div>
-      <div style={{ flex: 1, display: 'flex' }}>{children}</div>
+      <div className='is-flex is-flex-direction-column m-6' style={{ flex: 1 }}>{children}</div>
 
       <div className='is-flex is-flex-direction-row is-justify-content-center is-align-items-center'>
         <a

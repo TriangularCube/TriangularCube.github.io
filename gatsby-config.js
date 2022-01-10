@@ -4,7 +4,7 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-sass`,
-    `gatsby-plugin-top-layout`,
+    // `gatsby-plugin-top-layout`,
     `gatsby-plugin-image`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-typescript`,

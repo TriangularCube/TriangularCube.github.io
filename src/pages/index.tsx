@@ -1,6 +1,7 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
 import { Center } from '../components/Center'
+import '../styles.scss'
 
 function IndexPage() {
   return (

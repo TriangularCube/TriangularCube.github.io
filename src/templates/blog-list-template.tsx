@@ -24,11 +24,12 @@ interface DataType {
 
 function Blog({ data, pageContext }: DataType) {
   const { currentPage, numPages } = pageContext
-  const isFirst = currentPage === 1
-  const isLast = currentPage === numPages
-  const prevPage =
-    currentPage - 1 === 1 ? '/blog' : (currentPage - 1).toString()
-  const nextPage = (currentPage + 1).toString()
+  const isNewest = currentPage === 1
+  const isOldest = currentPage === numPages
+  const newerPage = `/blog/${
+    currentPage > 2 ? (currentPage - 1).toString() : ''
+  }`
+  const olderPage = `/blog/${(currentPage + 1).toString()}`
 
   return (
     <>
@@ -36,24 +37,34 @@ function Blog({ data, pageContext }: DataType) {
         <title>Triangular Cube's Blog</title>
       </Helmet>
       <Center>
-        {data.allMdx.nodes.map(node => (
-          <article key={node.slug}>
-            <Link className='is-flex is-flex-direction-column is-align-items-center' to={`/blog/${node.slug}`}>
-              <p className='is-size-4'>{node.frontmatter.title}</p>
-              <p className='is-size-6 has-text-dark'>{node.frontmatter.date}</p>
-            </Link>
-          </article>
-        ))}
-        <div>
-          {!isFirst && (
-            <Link to={prevPage} rel='prev'>
-              ← Previous Page
+        <div
+          className='is-flex is-flex-direction-column is-justify-content-center'
+          style={{ flex: 1 }}
+        >
+          {data.allMdx.nodes.map(node => (
+            <article className='block' key={node.slug}>
+              <Link
+                className='is-flex is-flex-direction-column is-align-items-center'
+                to={`/blog/${node.slug}`}
+              >
+                <p className='is-size-4'>{node.frontmatter.title}</p>
+                <p className='is-size-6 has-text-dark'>
+                  {node.frontmatter.date}
+                </p>
+              </Link>
+            </article>
+          ))}
+        </div>
+        <div className='is-flex' style={{ width: '100%' }}>
+          {!isOldest && (
+            <Link to={olderPage} rel='older'>
+              ← Older Posts
             </Link>
           )}
-          <div />
-          {!isLast && (
-            <Link to={nextPage} rel='next'>
-              Next Page →
+          <div style={{ flex: 1 }} />
+          {!isNewest && (
+            <Link to={newerPage} rel='newer'>
+              Newer Posts →
             </Link>
           )}
         </div>
