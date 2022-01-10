@@ -3,7 +3,7 @@ import { Center } from '../components/Center'
 
 function ErrorPage() {
   return <Center>
-    {/*<Typography variant='h4'>Uh oh, it looks like there's been an error</Typography>*/}
+    <h4 className='title is-4 has-text-dark'>Uh oh, it looks like there's been an error</h4>
   </Center>
 }
 

@@ -59,12 +59,10 @@ function Blog({ data, pageContext }: DataType) {
       <Center>
         {data.allMdx.nodes.map(node => (
           <article key={node.slug}>
-            {/*<Link to={`/blog/${node.slug}`}>*/}
-            {/*  <Typography variant='h6'>{node.frontmatter.title}</Typography>*/}
-            {/*</Link>*/}
-            {/*<Typography variant='body2'>*/}
-            {/*  Posted: {node.frontmatter.date}*/}
-            {/*</Typography>*/}
+            <Link className='is-flex is-flex-direction-column is-align-items-center' to={`/blog/${node.slug}`}>
+              <p className='is-size-4'>{node.frontmatter.title}</p>
+              <p className='is-size-6 has-text-dark'>{node.frontmatter.date}</p>
+            </Link>
           </article>
         ))}
         <div>
@@ -73,7 +71,7 @@ function Blog({ data, pageContext }: DataType) {
               ← Previous Page
             </Link>
           )}
-          <div/>
+          <div />
           {!isLast && (
             <Link to={nextPage} rel='next'>
               Next Page →

@@ -1,3 +1,4 @@
+import { Link } from 'gatsby'
 import React, { FC, ReactElement, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
@@ -17,9 +18,9 @@ export const Layout: FC = ({ children }): ReactElement => {
         aria-label='main navigation'
       >
         <div className='navbar-brand'>
-          <a className='navbar-item' href='/'>
+          <Link className='navbar-item' to='/'>
             <div className='has-text-weight-bold'>Triangular Cube</div>
-          </a>
+          </Link>
 
           <a
             role='button'
@@ -36,12 +37,12 @@ export const Layout: FC = ({ children }): ReactElement => {
 
         <div className={`navbar-menu ${showMenu && 'is-active'}`}>
           <div className='navbar-end'>
-            <a className='navbar-item' href='/projects'>
+            <Link className='navbar-item' to='/projects'>
               Projects
-            </a>
-            <a className='navbar-item' href='/blog'>
+            </Link>
+            <Link className='navbar-item' to='/blog'>
               Blog
-            </a>
+            </Link>
           </div>
         </div>
       </div>

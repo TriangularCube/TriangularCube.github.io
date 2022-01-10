@@ -66,7 +66,10 @@ function BlogPost({ data }: MDXProps) {
               alt={data.mdx.frontmatter.featuredImageAlt}
             />
           )}
-          <div/>
+          <div />
+          <h4 className='title is-4 has-text-dark'>
+            {data.mdx.frontmatter.title}
+          </h4>
           {/*<Typography variant='h4'>{data.mdx.frontmatter.title}</Typography>*/}
           {/*<Typography variant='body2' className={classes.datePadding}>*/}
           {/*  {data.mdx.frontmatter.date}*/}
