@@ -18,7 +18,11 @@ export const Layout: FC = ({ children }): ReactElement => {
         aria-label='main navigation'
       >
         <div className='navbar-brand'>
-          <Link className='navbar-item' to='/'>
+          <Link
+            className='navbar-item'
+            to='/'
+            onClick={() => setShowMenu(false)}
+          >
             <div className='has-text-weight-bold'>Triangular Cube</div>
           </Link>
 
@@ -37,16 +41,26 @@ export const Layout: FC = ({ children }): ReactElement => {
 
         <div className={`navbar-menu ${showMenu && 'is-active'}`}>
           <div className='navbar-end'>
-            <Link className='navbar-item' to='/projects'>
+            <Link
+              className='navbar-item'
+              to='/projects'
+              onClick={() => setShowMenu(false)}
+            >
               Projects
             </Link>
-            <Link className='navbar-item' to='/blog'>
+            <Link
+              className='navbar-item'
+              to='/blog'
+              onClick={() => setShowMenu(false)}
+            >
               Blog
             </Link>
           </div>
         </div>
       </div>
-      <div className='is-flex is-flex-direction-column m-6' style={{ flex: 1 }}>{children}</div>
+      <div className='is-flex is-flex-direction-column m-6' style={{ flex: 1 }}>
+        {children}
+      </div>
 
       <div className='is-flex is-flex-direction-row is-justify-content-center is-align-items-center'>
         <a

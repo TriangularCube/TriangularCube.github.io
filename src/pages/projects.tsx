@@ -8,7 +8,7 @@ function Projects() {
         <title>Projects</title>
       </Helmet>
       <Center>
-        <div className='title is-4 has-text-dark'>Under Construction</div>
+        <div className='title is-4'>Under Construction</div>
       </Center>
     </>
   )
