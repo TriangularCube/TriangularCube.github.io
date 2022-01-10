@@ -1,38 +1,18 @@
-import React, { FC, ReactElement } from 'react'
+import React, { FC, ReactElement, useState } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {
+  faGithub,
+  faLinkedin,
+  faTwitter,
+} from '@fortawesome/free-brands-svg-icons'
 
-// import { LinkedIn, GitHub, Twitter } from '@material-ui/icons'
-// import { Link } from 'gatsby'
-
-// const useStyles = makeStyles({
-//   wrapper: {
-//     flex: 1,
-//     display: 'flex'
-//   },
-//   spacer: {
-//     flex: 1,
-//   },
-//   button: {
-//     padding: '0 0.3rem',
-//     margin: '0 0.2rem'
-//   },
-//   lastButton: {
-//     paddingLeft: '0.3rem',
-//     marginLeft: '0.2rem'
-//   },
-//   footerLine: {
-//     display: 'flex',
-//     flexDirection: 'row',
-//     alignItems: 'center',
-//     justifyContent: 'center',
-//   },
-// })
 export const Layout: FC = ({ children }): ReactElement => {
-  // const classes = useStyles()
+  const [showMenu, setShowMenu] = useState(false)
 
   return (
     <>
       <div
-        className='navbar is-fixed-top is-spaced is-transparent'
+        className='navbar is-fixed-top is-spaced'
         role='navigation'
         aria-label='main navigation'
       >
@@ -40,70 +20,66 @@ export const Layout: FC = ({ children }): ReactElement => {
           <a className='navbar-item' href='/'>
             <div className='has-text-weight-bold'>Triangular Cube</div>
           </a>
-        </div>
 
-        <div className='navbar-end'>
-          <a className='navbar-item' href='/blog'>
-            Blog
+          <a
+            role='button'
+            className={`navbar-burger ${showMenu && 'is-active'}`}
+            aria-label='menu'
+            aria-expanded='false'
+            onClick={() => setShowMenu(!showMenu)}
+          >
+            <span aria-hidden='true' />
+            <span aria-hidden='true' />
+            <span aria-hidden='true' />
           </a>
         </div>
+
+        <div className={`navbar-menu ${showMenu && 'is-active'}`}>
+          <div className='navbar-end'>
+            <a className='navbar-item' href='/projects'>
+              Projects
+            </a>
+            <a className='navbar-item' href='/blog'>
+              Blog
+            </a>
+          </div>
+        </div>
       </div>
-      {children}
-      {/*<AppBar position='sticky' color='inherit' elevation={0}>*/}
-      {/*  <Toolbar>*/}
-      {/*    <ButtonBase component={Link} to='/'>*/}
-      {/*      <Typography variant='body1' style={{ fontWeight: 700 }}>*/}
-      {/*        <strong>Triangular Cube</strong>*/}
-      {/*      </Typography>*/}
-      {/*    </ButtonBase>*/}
-      {/*    <div className={classes.spacer} />*/}
-      {/*    <ButtonBase*/}
-      {/*      component={Link}*/}
-      {/*      to='/projects'*/}
-      {/*      className={classes.button}*/}
-      {/*    >*/}
-      {/*      <Typography variant='body1'>Projects</Typography>*/}
-      {/*    </ButtonBase>*/}
-      {/*    <ButtonBase*/}
-      {/*      component={Link}*/}
-      {/*      to='/blog'*/}
-      {/*      className={classes.lastButton}*/}
-      {/*    >*/}
-      {/*      <Typography variant='body1'>Blog</Typography>*/}
-      {/*    </ButtonBase>*/}
-      {/*  </Toolbar>*/}
-      {/*</AppBar>*/}
-      {/*<div className={classes.wrapper}>{children}</div>*/}
-      {/*<div className={classes.footerLine}>*/}
-      {/*  <IconButton*/}
-      {/*    color='inherit'*/}
-      {/*    component='a'*/}
-      {/*    href='https://www.linkedin.com/in/%F0%9F%92%BE-michael-liu-b0072513a/'*/}
-      {/*  >*/}
-      {/*    <LinkedIn />*/}
-      {/*  </IconButton>*/}
-      {/*  <Typography>•</Typography>*/}
-      {/*  <IconButton*/}
-      {/*    color='inherit'*/}
-      {/*    component='a'*/}
-      {/*    href='https://github.com/TriangularCube'*/}
-      {/*  >*/}
-      {/*    <GitHub />*/}
-      {/*  </IconButton>*/}
-      {/*  <Typography>•</Typography>*/}
-      {/*  <IconButton*/}
-      {/*    color='inherit'*/}
-      {/*    component='a'*/}
-      {/*    href='https://twitter.com/TempestUnbound'*/}
-      {/*  >*/}
-      {/*    <Twitter />*/}
-      {/*  </IconButton>*/}
-      {/*</div>*/}
-      {/*<div className={classes.footerLine}>*/}
-      {/*  <Typography variant='body2'>*/}
-      {/*    © {new Date().getFullYear()} <strong>Michael Liu</strong>*/}
-      {/*  </Typography>*/}
-      {/*</div>*/}
+      <div style={{ flex: 1, display: 'flex' }}>{children}</div>
+
+      <div className='is-flex is-flex-direction-row is-justify-content-center is-align-items-center'>
+        <a
+          className='button is-medium is-white'
+          href='https://www.linkedin.com/in/%F0%9F%92%BE-michael-liu-b0072513a/'
+        >
+          <span className='icon'>
+            <FontAwesomeIcon icon={faLinkedin} />
+          </span>
+        </a>
+        <div>•</div>
+        <a
+          className='button is-medium is-white'
+          href='https://github.com/triangularcube'
+        >
+          <span className='icon'>
+            <FontAwesomeIcon icon={faGithub} />
+          </span>
+        </a>
+        <div>•</div>
+        <a
+          className='button is-medium is-white'
+          href='https://twitter.com/tempestunbound'
+        >
+          <span className='icon'>
+            <FontAwesomeIcon icon={faTwitter} />
+          </span>
+        </a>
+      </div>
+      <div className='is-flex is-flex-direction-row is-justify-content-center mb-2'>
+        <p className='is-text'>
+          © {new Date().getFullYear()} <strong>Michael Liu</strong>
+        </p>
+      </div>
     </>
   )
 }

@@ -4,7 +4,7 @@ import { Center } from '../components/Center'
 function Projects() {
   return (
     <Center>
-      <div>Under Construction</div>
+      <div className='title is-4 has-text-dark'>Under Construction</div>
     </Center>
   )
 }
