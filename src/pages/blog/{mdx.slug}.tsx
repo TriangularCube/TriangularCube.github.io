@@ -61,6 +61,9 @@ function BlogPost({ data }: MDXProps) {
             <MDXRenderer>{data.mdx.body}</MDXRenderer>
           </MDXProvider>
         </div>
+
+        <hr />
+
         <Comments />
       </Center>
     </>

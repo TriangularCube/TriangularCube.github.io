@@ -18,7 +18,7 @@ That's great! Except we never quite get where to _find_ `userInfo`. After some p
 around, I found that you can access `userInfo` from the `error` object caught
 on a promise rejection.
 
-```js
+```js {8}
 import {NativeModules} from 'react-native'
 const {SomeModule} = NativeModules
 
@@ -26,7 +26,7 @@ const {SomeModule} = NativeModules
 try {
     await SomeModule.doSomething()
 } catch (error) {
-    error.userInfo // <-- This here
+    error.userInfo
 }
 ```
 
