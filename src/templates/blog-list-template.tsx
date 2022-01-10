@@ -1,6 +1,5 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
-// import { makeStyles, Typography } from '@material-ui/core'
 import { Helmet } from 'react-helmet'
 
 import { Center } from '../components/Center'
@@ -23,27 +22,7 @@ interface DataType {
   }
 }
 
-// const useStyles = makeStyles({
-//   article: {
-//     display: 'flex',
-//     flexDirection: 'column',
-//     alignItems: 'center',
-//     padding: '0.5rem 0',
-//   },
-//   navSection: {
-//     display: 'flex',
-//     flexDirection: 'row',
-//     width: '60%',
-//     marginTop: '8rem',
-//   },
-//   spacer: {
-//     flex: 1,
-//   },
-// })
-
 function Blog({ data, pageContext }: DataType) {
-  // const classes = useStyles()
-
   const { currentPage, numPages } = pageContext
   const isFirst = currentPage === 1
   const isLast = currentPage === numPages

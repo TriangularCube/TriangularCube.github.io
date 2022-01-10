@@ -1,6 +1,8 @@
 import React, { PropsWithChildren } from 'react'
 import { Helmet } from 'react-helmet'
 import './styles.scss'
+import { defineCustomElements as deckDeckGoHighlightElement } from "@deckdeckgo/highlight-code/dist/loader"
+deckDeckGoHighlightElement()
 
 export function TopLayout(props: PropsWithChildren<unknown>) {
   return (

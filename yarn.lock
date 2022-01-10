@@ -1521,6 +1521,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@deckdeckgo/highlight-code@npm:^3.6.0":
+  version: 3.6.0
+  resolution: "@deckdeckgo/highlight-code@npm:3.6.0"
+  dependencies:
+    "@deckdeckgo/utils": ^2.4.0
+    prismjs: ^1.25.0
+  checksum: 04fae3b6baa1e17ec3d2111070ab48b7150f39df73d5ba4901045db2647649207b1719308c60b6c515230d0221341883bf7acc83a5d37b6b57428787f5f90677
+  languageName: node
+  linkType: hard
+
+"@deckdeckgo/utils@npm:^2.4.0":
+  version: 2.4.0
+  resolution: "@deckdeckgo/utils@npm:2.4.0"
+  checksum: e1da1873dadc62f57847dbbbd6bc8d33c29681785124da981186a7972dbf3132b5f8a2c9012ff053486cdf5d838553d56baf40fbfb687f28eeed2a657f32f75a
+  languageName: node
+  linkType: hard
+
 "@endemolshinegroup/cosmiconfig-typescript-loader@npm:3.0.2":
   version: 3.0.2
   resolution: "@endemolshinegroup/cosmiconfig-typescript-loader@npm:3.0.2"
@@ -4444,7 +4461,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"camel-case@npm:4.1.2":
+"camel-case@npm:4.1.2, camel-case@npm:^4.1.2":
   version: 4.1.2
   resolution: "camel-case@npm:4.1.2"
   dependencies:
@@ -7445,6 +7462,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"gatsby-node-helpers@npm:^1.2.1":
+  version: 1.2.1
+  resolution: "gatsby-node-helpers@npm:1.2.1"
+  dependencies:
+    camel-case: ^4.1.2
+    pascal-case: ^3.1.2
+  peerDependencies:
+    gatsby: ">=2.29"
+  checksum: 13644f231c925d9b73f01901f371ce0ee69168538067e9fe697cbb9416a5ca5824ae8a87cbe8e6b3380e7afb7ed6a4ab0de759f3ecdd1e8a1ce774d741198954
+  languageName: node
+  linkType: hard
+
 "gatsby-page-utils@npm:^2.4.0":
   version: 2.4.0
   resolution: "gatsby-page-utils@npm:2.4.0"
@@ -7722,6 +7751,21 @@ __metadata:
     xstate: ^4.9.1
     yoga-layout-prebuilt: ^1.9.6
   checksum: 5f309442e971cb9d5551cab21bcc54a677c8908c90ab7ce6b0d49a2cc2b06c96dac13901a3f812e4c877fc7885abe585ed89ea18ce8098ad83d4d60908a66244
+  languageName: node
+  linkType: hard
+
+"gatsby-remark-highlight-code@npm:^3.2.0":
+  version: 3.2.0
+  resolution: "gatsby-remark-highlight-code@npm:3.2.0"
+  dependencies:
+    gatsby-node-helpers: ^1.2.1
+    lodash: ^4.17.21
+    mdast-util-to-string: ^1.1.0
+    unist-util-visit: ^2.0.2
+  peerDependencies:
+    "@deckdeckgo/highlight-code": ^3.6.0
+    gatsby: ^3.0.0 || ^4.0.0
+  checksum: dfbaf8babd69cb7621b26262cccf5a61af4884a21d70bb0345938439403baa11e4a5eaf2f4d18da2ebf6c40455bf7ec88c95956bdf9c3db7b73e6122203a3381
   languageName: node
   linkType: hard
 
@@ -12616,7 +12660,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prismjs@npm:^1.26.0":
+"prismjs@npm:^1.25.0":
   version: 1.26.0
   resolution: "prismjs@npm:1.26.0"
   checksum: 6de058930ce767d44d60322e625bbc255f5107c7bf82c441ade19a289358e01e35040cea0c17adf8f7b829f17aa48e2d84b40866b5b3f8c75a12c6b3f0ead231
@@ -13673,6 +13717,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "root-workspace-0b6124@workspace:."
   dependencies:
+    "@deckdeckgo/highlight-code": ^3.6.0
     "@fortawesome/fontawesome-svg-core": ^1.2.36
     "@fortawesome/free-brands-svg-icons": ^5.15.4
     "@fortawesome/react-fontawesome": ^0.1.16
@@ -13689,12 +13734,12 @@ __metadata:
     gatsby-plugin-sass: ^5.4.0
     gatsby-plugin-sharp: ^4.4.0
     gatsby-plugin-typescript: ^4.4.0
+    gatsby-remark-highlight-code: ^3.2.0
     gatsby-remark-images: ^6.4.0
     gatsby-source-filesystem: ^4.4.0
     gatsby-transformer-sharp: ^4.4.0
     prettier: ^2.5.1
     prism-react-renderer: ^1.2.1
-    prismjs: ^1.26.0
     react: ^17.0.2
     react-dom: ^17.0.2
     react-helmet: ^6.1.0
