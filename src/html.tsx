@@ -8,7 +8,7 @@ interface HTMLProps {
 
 export default function (props: HTMLProps): ReactElement {
   return (
-    <html lang='en'>
+    <html className='has-navbar-fixed-top' lang='en'>
       <head>
         <title>Triangular Cube</title>
         <meta charSet='utf-8' />

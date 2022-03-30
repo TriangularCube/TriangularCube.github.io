@@ -5,7 +5,7 @@ import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { MDXProvider } from '@mdx-js/react'
 import { Helmet } from 'react-helmet'
 import { Center } from '../../components/Center'
-import { CodeBlock } from '../../components/CodeBlock'
+import { MdxComponents } from '../../components/MdxComponents'
 import { Comments } from '../../components/Comments'
 
 interface MDXProps {
@@ -24,10 +24,6 @@ interface MDXProps {
       body: string
     }
   }
-}
-
-const components = {
-  pre: CodeBlock,
 }
 
 // https://stackoverflow.com/questions/66996984/using-prismjs-for-syntax-highlighted-code-blocks-is-breaking-layout-on-mobile
@@ -57,7 +53,7 @@ function BlogPost({ data }: MDXProps) {
             <em>{data.mdx.frontmatter.date}</em>
           </p>
 
-          <MDXProvider components={components}>
+          <MDXProvider components={MdxComponents}>
             <MDXRenderer>{data.mdx.body}</MDXRenderer>
           </MDXProvider>
         </div>

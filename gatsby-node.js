@@ -1,11 +1,31 @@
 const path = require('path')
 
+exports.onCreateNode = ({ node, getNode, actions }) => {
+  const { createNodeField } = actions
+
+  if (node.internal.type === 'Mdx') {
+    const parent = getNode(node.parent)
+
+    if (parent.internal.type === 'File') {
+      createNodeField({
+        name: 'sourceName',
+        node,
+        value: parent.sourceInstanceName,
+      })
+    }
+  }
+}
+
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
 
   const blogPosts = await graphql(`
     {
-      allMdx(sort: { fields: frontmatter___date, order: DESC }, limit: 1000) {
+      allMdx(
+        filter: { fields: { sourceName: { eq: "blog" } } }
+        sort: { fields: frontmatter___date, order: DESC }
+        limit: 1000
+      ) {
         nodes {
           slug
         }

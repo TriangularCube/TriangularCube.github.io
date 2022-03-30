@@ -47,7 +47,9 @@ function Blog({ data, pageContext }: DataType) {
                 className='is-flex is-flex-direction-column is-align-items-center'
                 to={`/blog/${node.slug}`}
               >
-                <p className='is-size-4 has-text-centered'>{node.frontmatter.title}</p>
+                <p className='is-size-4 has-text-centered'>
+                  {node.frontmatter.title}
+                </p>
                 <p className='is-size-6 has-text-dark has-text-centered'>
                   {node.frontmatter.date}
                 </p>
@@ -76,6 +78,7 @@ function Blog({ data, pageContext }: DataType) {
 export const query = graphql`
   query ($skip: Int!, $limit: Int!) {
     allMdx(
+      filter: { fields: { sourceName: { eq: "blog" } } }
       sort: { fields: frontmatter___date, order: DESC }
       limit: $limit
       skip: $skip

@@ -23,6 +23,13 @@ module.exports = {
         path: `${__dirname}/blog/images`,
       },
     },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'page-content',
+        path: `${__dirname}/page-content/`,
+      },
+    },
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     {
