@@ -11,6 +11,7 @@ interface DefinitionsProps {
       body: string
       frontmatter: {
         title: string
+        date: string
       }
     }
   }
@@ -20,6 +21,12 @@ function Definitions({ data }: DefinitionsProps) {
   return (
     <Center>
       <div className='title is-3'>{data.mdx.frontmatter.title}</div>
+      <div className='subtitle is-5'>
+        Last Updated: {data.mdx.frontmatter.date}
+      </div>
+
+      <hr />
+
       <div className='content'>
         <MDXProvider components={MdxComponents}>
           <MDXRenderer>{data.mdx.body}</MDXRenderer>
@@ -35,6 +42,7 @@ export const query = graphql`
       body
       frontmatter {
         title
+        date
       }
     }
   }
