@@ -1,9 +1,7 @@
-import { MDXProvider } from '@mdx-js/react'
 import { graphql } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import React from 'react'
 import { Center } from '../components/Center'
-import { MdxComponents } from '../components/MdxComponents'
 
 interface DefinitionsProps {
   data: {
@@ -28,9 +26,7 @@ function Definitions({ data }: DefinitionsProps) {
       <hr />
 
       <div className='content'>
-        <MDXProvider components={MdxComponents}>
-          <MDXRenderer>{data.mdx.body}</MDXRenderer>
-        </MDXProvider>
+        <MDXRenderer>{data.mdx.body}</MDXRenderer>
       </div>
     </Center>
   )

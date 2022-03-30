@@ -2,10 +2,8 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
-import { MDXProvider } from '@mdx-js/react'
 import { Helmet } from 'react-helmet'
 import { Center } from '../../components/Center'
-import { MdxComponents } from '../../components/MdxComponents'
 import { Comments } from '../../components/Comments'
 
 interface MDXProps {
@@ -53,9 +51,7 @@ function BlogPost({ data }: MDXProps) {
             <em>{data.mdx.frontmatter.date}</em>
           </p>
 
-          <MDXProvider components={MdxComponents}>
-            <MDXRenderer>{data.mdx.body}</MDXRenderer>
-          </MDXProvider>
+          <MDXRenderer>{data.mdx.body}</MDXRenderer>
         </div>
 
         <hr />
