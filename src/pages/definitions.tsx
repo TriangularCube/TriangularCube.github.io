@@ -18,8 +18,8 @@ interface DefinitionsProps {
 function Definitions({ data }: DefinitionsProps) {
   return (
     <Center>
-      <div className='title is-3'>{data.mdx.frontmatter.title}</div>
-      <div className='subtitle is-5'>
+      <div className='title has-text-centered is-3'>{data.mdx.frontmatter.title}</div>
+      <div className='subtitle has-text-centered is-5'>
         Last Updated: {data.mdx.frontmatter.date}
       </div>
 
