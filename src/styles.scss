@@ -25,7 +25,7 @@ $text: #e1e1e1;
 $text-light: lighten($text, 10);
 $text-strong: darken($text, 5);
 
-$link: #fafafa;
+$link: #9aedda;
 $link-invert: $grey;
 $link-hover: lighten($link, 5);
 $link-focus: darken($link, 5);
@@ -36,16 +36,18 @@ $link-visited: $green;
 
 $button-color: #535151;
 
+$navbar-base-color: #fafafa;
+
 //$navbar-height: 4rem;
 $navbar-background-color: $background;
-$navbar-item-color: rgba($link, 0.5);
-$navbar-item-hover-color: $link;
-$navbar-item-active-color: $link;
+$navbar-item-color: rgba($navbar-base-color, 0.5);
+$navbar-item-hover-color: $navbar-base-color;
+$navbar-item-active-color: $navbar-base-color;
 $navbar-item-hover-background-color: darken($grey-dark, 5);
 $navbar-item-active-background-color: darken($grey-dark, 5);
 $navbar-dropdown-background-color: $background;
-$navbar-dropdown-item-hover-color: $link;
-$navbar-dropdown-item-active-color: $link;
+$navbar-dropdown-item-hover-color: $navbar-base-color;
+$navbar-dropdown-item-active-color: $navbar-base-color;
 $navbar-dropdown-item-hover-background-color: darken($grey-dark, 5);
 $navbar-dropdown-item-active-background-color: darken($grey-dark, 5);
 

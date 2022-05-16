@@ -1,4 +1,3 @@
-import { MDXProvider } from '@mdx-js/react'
 import React from 'react'
 import { graphql } from 'gatsby'
 import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image'
@@ -27,14 +26,6 @@ interface MDXProps {
 
 // https://stackoverflow.com/questions/66996984/using-prismjs-for-syntax-highlighted-code-blocks-is-breaking-layout-on-mobile
 
-const Paragraph = (props: unknown) => (
-  <p style={{ margin: '1rem 0' }} {...props} />
-)
-
-const components = {
-  p: Paragraph,
-}
-
 function BlogPost({ data }: MDXProps) {
   const featuredImage =
     data.mdx.frontmatter.featuredImage?.childImageSharp?.gatsbyImageData
@@ -56,14 +47,14 @@ function BlogPost({ data }: MDXProps) {
 
           {featuredImage && <hr />}
 
-          <h4 className='title is-4'>{data.mdx.frontmatter.title}</h4>
-          <p className='subtitle is-6 pb-2'>
+          <h4 className='title is-3'>{data.mdx.frontmatter.title}</h4>
+          <p className='subtitle is-5 pb-2'>
             <em>{data.mdx.frontmatter.date}</em>
           </p>
 
-          <MDXProvider components={components}>
+          <div className='content'>
             <MDXRenderer>{data.mdx.body}</MDXRenderer>
-          </MDXProvider>
+          </div>
         </div>
 
         <hr />
