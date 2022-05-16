@@ -1,5 +1,5 @@
 import { Link } from 'gatsby'
-import React, { FC, ReactElement, useState } from 'react'
+import React, { FC, PropsWithChildren, ReactElement, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faGithub,
@@ -7,7 +7,7 @@ import {
   faTwitter,
 } from '@fortawesome/free-brands-svg-icons'
 
-export const Layout: FC = ({ children }): ReactElement => {
+export const Layout: FC = ({ children }: PropsWithChildren<any>): ReactElement => {
   const [showMenu, setShowMenu] = useState(false)
 
   return (
@@ -23,7 +23,7 @@ export const Layout: FC = ({ children }): ReactElement => {
             to='/'
             onClick={() => setShowMenu(false)}
           >
-            <div className='has-text-weight-bold'>Triangular Cube</div>
+            <div className='has-text-weight-bold has-text-white'>Triangular Cube</div>
           </Link>
 
           <a
@@ -64,29 +64,29 @@ export const Layout: FC = ({ children }): ReactElement => {
 
       <div className='is-flex is-flex-direction-row is-justify-content-center is-align-items-center'>
         <a
-          className='button is-medium is-white'
+          className='is-medium p-4'
           href='https://www.linkedin.com/in/%F0%9F%92%BE-michael-liu-b0072513a/'
         >
           <span className='icon'>
-            <FontAwesomeIcon icon={faLinkedin} />
+            <FontAwesomeIcon icon={faLinkedin} size='2x' />
           </span>
         </a>
         <div>•</div>
         <a
-          className='button is-medium is-white'
+          className='is-medium p-4'
           href='https://github.com/triangularcube'
         >
           <span className='icon'>
-            <FontAwesomeIcon icon={faGithub} />
+            <FontAwesomeIcon icon={faGithub} size='2x' />
           </span>
         </a>
         <div>•</div>
         <a
-          className='button is-medium is-white'
+          className='is-medium p-4'
           href='https://twitter.com/tempestunbound'
         >
           <span className='icon'>
-            <FontAwesomeIcon icon={faTwitter} />
+            <FontAwesomeIcon icon={faTwitter} size='2x' />
           </span>
         </a>
       </div>
