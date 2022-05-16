@@ -67,7 +67,7 @@ export const Layout: FC = ({ children }: PropsWithChildren<any>): ReactElement =
           className='is-medium p-4'
           href='https://www.linkedin.com/in/%F0%9F%92%BE-michael-liu-b0072513a/'
         >
-          <span className='icon'>
+          <span className='icon has-text-white'>
             <FontAwesomeIcon icon={faLinkedin} size='2x' />
           </span>
         </a>
@@ -76,7 +76,7 @@ export const Layout: FC = ({ children }: PropsWithChildren<any>): ReactElement =
           className='is-medium p-4'
           href='https://github.com/triangularcube'
         >
-          <span className='icon'>
+          <span className='icon has-text-white'>
             <FontAwesomeIcon icon={faGithub} size='2x' />
           </span>
         </a>
@@ -85,7 +85,7 @@ export const Layout: FC = ({ children }: PropsWithChildren<any>): ReactElement =
           className='is-medium p-4'
           href='https://twitter.com/tempestunbound'
         >
-          <span className='icon'>
+          <span className='icon has-text-white'>
             <FontAwesomeIcon icon={faTwitter} size='2x' />
           </span>
         </a>
