@@ -54,7 +54,7 @@ function BlogPost({ data }: MDXProps) {
           )}
           <div />
 
-          <hr />
+          {featuredImage && <hr />}
 
           <h4 className='title is-4'>{data.mdx.frontmatter.title}</h4>
           <p className='subtitle is-6 pb-2'>

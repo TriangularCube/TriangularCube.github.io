@@ -9,6 +9,21 @@ There were a bunch of features I've been waiting for available in Wrangler 2, su
 Stages and ESBuild with no (or less) configuration, and I finally got a chance to
 give it a shot this weekend trying to build something with Durable Objects, something
 else I haven't really worked with before, and the process was...not great. It wasn't
-terrible, but the whole ecosystem is a hodgepodge of slightly outdated information
+terrible, but the documentation are a hodgepodge of slightly outdated information
 and a lot of getting started guides without a cohesive structure, even the API docs
 are not terribly communicative.
+
+I understand how this could be the case, CloudFlare is moving extremely fast to
+provide cloud architecture for full stack applications, and docs are mostly aimed
+at getting newcomers up and running without a whole lot of clarity. Heck, even AWS
+docs, as long as they've been around, are kind of terrible at providing the type
+of docs that explains what it is each parameter is doing while we work at building
+an application.
+
+So, let's go on a journey to build something interesting with Durable Objects with
+Wrangler 2.
+
+## Setting the Scene
+
+Durable Objects are a really cool tech that provides a guaranteed singular instance
+of an object
