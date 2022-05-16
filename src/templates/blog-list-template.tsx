@@ -50,7 +50,7 @@ function Blog({ data, pageContext }: DataType) {
                 <p className='is-size-4 has-text-centered'>
                   {node.frontmatter.title}
                 </p>
-                <p className='is-size-6 has-text-dark has-text-centered'>
+                <p className='is-size-6 has-text-centered'>
                   {node.frontmatter.date}
                 </p>
               </Link>

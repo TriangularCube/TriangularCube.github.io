@@ -14,7 +14,7 @@ export function Comments() {
     )
     commentsScript.setAttribute('issue-term', 'title')
     commentsScript.setAttribute('label', 'Comment')
-    commentsScript.setAttribute('theme', 'github-light')
+    commentsScript.setAttribute('theme', 'github-dark')
     commentsScript.setAttribute('crossorigin', 'anonymous')
 
     if (ref.current != null) {

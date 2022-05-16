@@ -38,5 +38,8 @@
     "react-helmet": "^6.1.0",
     "sass": "^1.49.9"
   },
-  "packageManager": "yarn@3.1.1"
+  "packageManager": "yarn@3.2.1",
+  "volta": {
+    "node": "16.15.0"
+  }
 }
